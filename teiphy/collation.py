@@ -277,8 +277,8 @@ class Collation:
             A list of individual characters representing states in readings.
         """
         # NOTE: PAUP* allows up to 64 symbols, but IQTREE does not appear to support symbols outside of 0-9 and a-z, and base symbols must be case-insensitive,
-        # so we will settle for a maximum of 32 singleton symbols for now
-        possible_symbols = list(string.digits) + list(string.ascii_lowercase)[:22]
+        # edmondac's patched MrBayes allows 62 symbols, 0-9 a-z A-Z - even though they are supposed to be case-insensitive...
+        possible_symbols = list(string.ascii_lowercase) + list(string.ascii_uppercase) + list(string.digits)
         # The number of symbols needed is equal to the length of the longest substantive reading vector:
         nsymbols = 0
         # If there are no witnesses, then no symbols are needed at all:
